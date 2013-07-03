@@ -111,13 +111,13 @@ let main args =
         lcd.TemporaryText(sprintf "Volume : %i%%" vol, visual)
 
     nes.ButtonDown.Add(function
-                        | NES.Button.RIGHT -> MPC.next()
+                        | NES.Button.RIGHT -> player.Next()
                         | NES.Button.START ->  
-                            if !started  then MPC.toggle()
+                            if !started  then player.Toggle()
                             else started := true; player.QueueNewTracks()
                         
-                        | NES.Button.DOWN -> MPC.volumeDown();printVolume()
-                        | (NES.Button.UP) -> MPC.volumeUp();printVolume()
+                        | NES.Button.DOWN -> player.VolumeDown();printVolume()
+                        | (NES.Button.UP) -> player.VolumeUp();printVolume()
                         | _ -> ())
     
     nes.StartAsyncCycle()

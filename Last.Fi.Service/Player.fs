@@ -108,5 +108,6 @@ type Player() =
     member __.VolumeUp() = MPC.volumeUp()
     member __.VolumeDown() = MPC.volumeDown()
     member __.Toggle() = MPC.toggle()
+    member __.Next() = MPC.next()
         
         
